@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/通用.css">
+    <link rel="stylesheet" href="../static/表格样式.css">
+</head>
+<body>
+		<div style="border:2px solid gray" class="#">
+			<div class="top">
+				<p>超市仓储信息管理平台——零食区</p>
+			</div>
+			<div class="bottom">
+				<div class="left">
+                    <form action="" method="POST">
+                        <ul>
+                            <li><a href="/pandiandan">生成盘点单</a></li>
+                            <li><a href="/quehuodan">生成缺货单</a></li>
+                            <li><a href="/#">安全库存预警</a></li>
+                        </ul>
+                    </form>
+				</div>
+				<div class="right">
+                    <div>
+					    <h2 align="center">增加缺货单信息</h2>
+					    <div>
+					        <form action="/quehuodan" method="POST">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;序号：<input type="text" name="xuhao" >
+					            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;产品名称：<input type="text" name="chanpinmingcheng" >
+					            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;规格：<input type="text" name="guige" >
+					            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单位：<input type="text" name="danwei" ><br/>
+					             &nbsp;&nbsp;缺货数量：<input type="text" name="quehuoshuliang" >
+                                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单价：<input type="text" name="danjia" >
+                                &nbsp; 最低储量：<input type="text" name="zuidichuliang" >
+                                &nbsp;所需资金：<input type="text" name="suoxuzijin" ><br>
+                                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注：<input type="text" name="beizhu" >
+					            &nbsp; &nbsp;&nbsp;<input type="submit" name="submit" value="增加">
+					        </form>
+					    </div>
+					    <h2 align="center">生成缺货单</h2>
+                    <table border="2" >
+                        <tr>
+                            <th colspan="8">盘点单</th>
+                        </tr>
+                        <tr>
+                            <th>序号</th>
+                            <th>产品名称</th>
+                            <th>规格</th>
+                            <th>单位</th>
+                            <th>缺货数量</th>
+                            <th>单价</th>
+                            <th>最低储量</th>
+                            <th>所需资金</th>
+                            <th>备注</th>
+                        </tr>
+                        {%  for data in datas %}
+                           <tr>
+                               <td>{{ data.xuhao }}</td>
+                               <td>{{ data.chanpinmingcheng }}</td>
+                               <td>{{ data.guige }}</td>
+                               <td>{{ data.danwei }}</td>
+                               <td>{{ data.quehuoshuliang }}</td>
+                               <td>{{ data.danjia }}</td>
+                               <td>{{ data.zuidichuliang }}</td>
+                               <td>{{ data.suoxuzijin }}</td>
+                               <td>{{ data.beizhu }}</td>
+                               <td>
+                                   <a href="/缺货单修改?id={{ data.id }}" style="display:inline-block;">修改</a>&nbsp;&nbsp;&nbsp;<a href="/delete_quehuodan?id={{ data.id }}" style="display:inline-block">删除</a>
+                               </td>
+                           </tr>
+					    {% endfor %}
+                    </table>
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

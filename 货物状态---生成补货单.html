@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/通用.css">
+    <link rel="stylesheet" href="../static/表格样式.css">
+</head>
+<body>
+<div style="border:2px solid gray" class="#">
+			<div class="top">
+				<p>超市仓储信息管理平台——零食区</p>
+			</div>
+			<div class="bottom">
+				<div class="left">
+                    <form action="" method="POST">
+                        <ul>
+                            <!--跳转下一个页面-->
+                            <li><a href="/buhuodan">生成补货单</a></li>
+                            <li><a href="/#">补货提醒</a></li>
+
+                        </ul>
+                    </form>
+				</div>
+				<div class="right">
+                    <div>
+					    <h2 align="center">增加补货单信息</h2>
+					    <div>
+					        <form action="buhuodan" method="POST">
+                                &nbsp; &nbsp;&nbsp;序号：<input type="text" name="xuhao" >
+					            &nbsp; &nbsp;&nbsp;产品名称：<input type="text" name="chanpinmingcheng" >
+					            &nbsp; &nbsp;&nbsp;单位：<input type="text" name="danwei" ><br/>
+					            &nbsp; &nbsp;&nbsp;数量：<input type="text" name="shuliang" >
+                                &nbsp; &nbsp;&nbsp;单价：<input type="text" name="danjia" >
+                                &nbsp; &nbsp;&nbsp;总计：<input type="text" name="zongji" >
+                                &nbsp; &nbsp;&nbsp;备注：<input type="text" name="beizhu" >
+					            &nbsp; &nbsp;&nbsp;<input type="submit" name="submit" value="增加">
+					        </form>
+					    </div>
+					    <h2 align="center">生成补货单</h2>
+                    <table border="2" >
+                        <tr>
+                            <th colspan="8">补货单</th>
+                        </tr>
+                        <tr>
+                            <th>序号</th>
+                            <th>产品名称</th>
+                            <th>单位</th>
+                            <th>数量</th>
+                            <th>单价</th>
+                            <th>总计</th>
+                            <th>备注</th>
+                        </tr>
+                        {%  for data in datas %}
+                           <tr>
+                               <td>{{ data.xuhao }}</td>
+                               <td>{{ data.chanpinmingcheng }}</td>
+                               <td>{{ data.danwei }}</td>
+                               <td>{{ data.shuliang }}</td>
+                               <td>{{ data.danjia }}</td>
+                               <td>{{ data.zongji }}</td>
+                               <td>{{ data.beizhu }}</td>
+                               <td><a href="/补货单修改?id={{ data.id }}" style="display:inline-block;">修改</a>&nbsp;&nbsp;&nbsp;<a href="/delete_buhuodan?id={{ data.id }}" style="display:inline-block">删除</a></td>
+                           </tr>
+					    {% endfor %}
+                    </table>
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/通用.css">
+    <link rel="stylesheet" href="../static/表格样式.css">
+</head>
+<body>
+		<div style="border:2px solid gray" class="#">
+			<div class="top">
+				<p>超市仓储信息管理平台——零食区</p>
+			</div>
+			<div class="bottom">
+				<div class="left">
+                    <form action="" method="POST">
+                        <ul>
+                            <li><a href="/pandiandan">生成盘点单</a></li>
+                            <li><a href="/quehuodan">生成缺货单</a></li>
+                            <li><a href="/#">安全库存预警</a></li>
+                        </ul>
+                    </form>
+				</div>
+				<div class="right">
+                    <div>
+					    <h2 align="center">增加盘点单信息</h2>
+					    <div>
+					        <form action="/pandiandan" method="POST">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;序号：<input type="text" name="xuhao" >
+					            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;产品名称：<input type="text" name="chanpinmingcheng" >
+					            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;产品规格：<input type="text" name="chanpinguige" >
+					            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;账面数量：<input type="text" name="zhangmianshuliang" ><br/>
+					             &nbsp;&nbsp;实存数量：<input type="text" name="shicunshuliang" >
+                                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;差值：<input type="text" name="chazhi" >
+                                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保质期：<input type="text" name="baozhiqi" >
+                                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;到期日：<input type="text" name="daoqiri" ><br>
+                                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注：<input type="text" name="beizhu" >
+					            &nbsp; &nbsp;&nbsp;<input type="submit" name="submit" value="增加">
+					        </form>
+					    </div>
+					    <h2 align="center">生成盘点单</h2>
+                    <table border="2" >
+                        <tr>
+                            <th colspan="8">盘点单</th>
+                        </tr>
+                        <tr>
+                            <th>序号</th>
+                            <th>产品名称</th>
+                            <th>产品规格</th>
+                            <th>账面数量</th>
+                            <th>实存数量</th>
+                            <th>差值</th>
+                            <th>保质期</th>
+                            <th>到期日</th>
+                            <th>备注</th>
+                        </tr>
+                        {%  for data in datas %}
+                           <tr>
+                               <td>{{ data.xuhao }}</td>
+                               <td>{{ data.chanpinmingcheng }}</td>
+                               <td>{{ data.chanpinguige }}</td>
+                               <td>{{ data.zhangmianshuliang }}</td>
+                               <td>{{ data.shicunshuliang }}</td>
+                               <td>{{ data.chazhi }}</td>
+                               <td>{{ data.baozhiqi }}</td>
+                               <td>{{ data.daoqiri }}</td>
+                               <td>{{ data.beizhu }}</td>
+                               <td>
+                                   <a href="/盘点单修改?id={{ data.id }}" style="display:inline-block;">修改</a>&nbsp;&nbsp;&nbsp;<a href="/delete_pandiandan?id={{ data.id }}" style="display:inline-block">删除</a>
+                               </td>
+                           </tr>
+					    {% endfor %}
+                    </table>
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

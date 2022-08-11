@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/通用.css">
+</head>
+<body>
+       <div style="border:2px solid gray" class="#">
+           <div class="top">
+				<p>超市仓储信息管理平台——零食区</p>
+           </div>
+			<div class="bottom">
+				<div class="left">
+                    <form action="" method="POST">
+                        <ul>
+                            <li><a href="/pandiandan">生成盘点单</a></li>
+                            <li><a href="/quehuodan">生成缺货单</a></li>
+                            <li><a href="/#">安全库存预警</a></li>
+                        </ul>
+                    </form>
+				</div>
+				<div class="right">
+					    <h2>修改出库单信息</h2>
+                        <div>
+                            <form action="/盘点单修改?id={{data.id}}" method="POST">
+                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;序号：<input type="text" name="xuhao" value="{{ data.xuhao}}">
+					            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;产品名称：<input type="text" name="chanpinmingcheng" value="{{ data.chanpinmingcheng}}">
+					            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;产品规格：<input type="text" name="chanpinguige" value="{{ data.chanpinguige}}">
+					            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;账面数量：<input type="text" name="zhangmianshuliang" value="{{ data.zhangmianshuliang}}"><br/>
+					             &nbsp;&nbsp;实存数量：<input type="text" name="shicunshuliang" value="{{ data.shicunshuliang}}">
+                                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;差值：<input type="text" name="chazhi" value="{{ data.chazhi}}">
+                                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;保质期：<input type="text" name="baozhiqi" value="{{ data.baozhiqi}}">
+                                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;到期日：<input type="text" name="daoqiri" value="{{ data.daoqiri}}"><br>
+                                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注：<input type="text" name="beizhu" value="{{ data.beizhu}}">
+					            &nbsp; &nbsp;&nbsp;<input type="submit" name="submit" value="修改">
+                            </form>
+                        </div>
+				</div>
+			</div>
+       </div>
+
+</body>
+</html>

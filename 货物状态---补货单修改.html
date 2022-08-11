@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>更新仓库信息</h2>
+    <div>
+        <form action="/补货单修改?id={{data.id}}" method="POST">
+            序号：<input type="text" name="xuhao" value="{{ data.xuhao}}"><br/>
+            产品名称：<input type="text" name="chanpinmingcheng" value="{{ data.chanpinmingcheng }}"><br/>
+            单位：<input type="text" name="danwei" value="{{ data.danwei}}"><br/>
+            数量：<input type="text" name="shuliang" value="{{ data.shuliang }}"><br/>
+            单价：<input type="text" name="danjia" value="{{ data.danjia }}"><br/>
+            总计：<input type="text" name="zongji" value="{{ data.zongji }}"><br/>
+            备注：<input type="text" name="beizhu" value="{{ data.beizhu }}"><br/>
+            <input type="submit" name="submit" value="提交">
+        </form>
+    </div>
+</body>
+</html>

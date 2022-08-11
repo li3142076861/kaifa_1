@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/通用.css">
+</head>
+<body>
+       <div style="border:2px solid gray" class="#">
+           <div class="top">
+				<p>超市仓储信息管理平台——零食区</p>
+           </div>
+			<div class="bottom">
+				<div class="left">
+                    <form action="" method="POST">
+                        <ul>
+                            <li><a href="/#">生成出库单</a></li>
+                            <li><a href="/#">货物信息采集</a></li>
+                            <li><a href="/#">历史单据查询</a></li>
+                        </ul>
+                    </form>
+				</div>
+				<div class="right">
+                    <p><a href="/主页面" class="yemian">返回主页面</a></p>
+					    <h2>修改出库单信息</h2>
+                        <div>
+                            <form action="/出库单修改?id={{data.id}}" method="POST">
+                                &nbsp; &nbsp;&nbsp;序号：<input type="text" name="xuhao" value="{{ data.xuhao}}">
+                                &nbsp; &nbsp;&nbsp;名称：<input type="text" name="mingcheng" value="{{ data.mingcheng}}">
+                                &nbsp; &nbsp;&nbsp;规格：<input type="text" name="guige" value="{{ data.guige}}">
+                                &nbsp; &nbsp;&nbsp;单位：<input type="text" name="danwei" value="{{ data.danwei}}"><br/>
+                                &nbsp; &nbsp;&nbsp;数量：<input type="text" name="shuliang" value="{{ data.shuliang}}">
+                                &nbsp; &nbsp;&nbsp;单价：<input type="text" name="danjia" value="{{ data.danjia}}">
+                                &nbsp; &nbsp;&nbsp;金额：<input type="text" name="jine" value="{{ data.jin}}">
+                                &nbsp; &nbsp;&nbsp;备注：<input type="text" name="beizhu" value="{{ data.beizhu}}"><br/>
+                                &nbsp; &nbsp;&nbsp;<input type="submit" name="submit" value="修改">
+                            </form>
+                        </div>
+				</div>
+			</div>
+       </div>
+
+</body>
+</html>

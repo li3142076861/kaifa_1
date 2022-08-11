@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/通用.css">
+</head>
+<body>
+       <div style="border:2px solid gray" class="#">
+           <div class="top">
+				<p>超市仓储信息管理平台——零食区</p>
+           </div>
+			<div class="bottom">
+				<div class="left">
+                    <form action="" method="POST">
+                        <ul>
+                            <li><a href="/pandiandan">生成盘点单</a></li>
+                            <li><a href="/quehuodan">生成缺货单</a></li>
+                            <li><a href="/#">安全库存预警</a></li>
+                        </ul>
+                    </form>
+				</div>
+				<div class="right">
+					    <h2>修改缺货单信息</h2>
+                        <div>
+                            <form action="/缺货单修改?id={{data.id}}" method="POST" >
+                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;序号：<input type="text" name="xuhao" value="{{ data.xuhao}}">
+					            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;产品名称：<input type="text" name="chanpinmingcheng" value="{{ data.chanpinmingcheng}}">
+					            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;规格：<input type="text" name="guige" value="{{ data.guige}}">
+					            &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单位：<input type="text" name="danwei" value="{{ data.danwei}}"><br/>
+					             &nbsp;&nbsp;缺货数量：<input type="text" name="quehuoshuliang" value="{{ data.quehuoshuliang}}">
+                                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单价：<input type="text" name="danjia" value="{{ data.danjia}}">
+                                &nbsp; 最低储量：<input type="text" name="zuidichuliang" value="{{ data.zuidichuliang}}">
+                                &nbsp;所需资金：<input type="text" name="suoxuzijin" value="{{ data.suoxuzijin}}"><br>
+                                &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注：<input type="text" name="beizhu" value="{{ data.beizhu}}">
+					            &nbsp; &nbsp;&nbsp;<input type="submit" name="submit" value="修改">
+                            </form>
+                        </div>
+				</div>
+			</div>
+       </div>
+
+</body>
+</html>

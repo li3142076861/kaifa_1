@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/通用.css">
+</head>
+<body>
+		<div style="border:2px solid gray" class="#">
+			<div class="top">
+				<p>超市仓储信息管理平台——零食区</p>
+			</div>
+			<div class="bottom">
+				<div class="left">
+                    <form action="" method="POST">
+                        <ul>
+                            <li><a href="/gongyingshang">供应商资料</a></li>
+                            <li><a href="/chanpin">产品资料</a></li>
+                            <li><a href="/yuangong">员工信息</a></li>
+                            <li><a href="/#">射频标签</a></li>
+                            <li><a href="/cangku">仓库信息</a></li>
+                        </ul>
+                    </form>
+				</div>
+				<div class="right">
+                <h2>产品资料</h2>
+                    {%  for data in datas %}
+					       <div style="background-color: #99b8f0;width:1043px;margin-top:5px;padding: 3px 10px;">
+                               货物编号：{{ data.huowubianhao }}<br/>
+					           货物名字：{{ data.huowumingcheng }}<br/>
+					           货物规格：{{ data.huowuguige }}<br/>
+					           货物位点：{{ data.huowuweidian }}<br/>
+					           到货日期：{{ data.daohuoriqi }}<br/>
+					           货物数量：{{ data.huowushuliang }}<br/>
+					           供应商号：{{ data.gongyingshanghao }}<br/>
+					       </div>
+                    {% endfor %}
+				</div>
+			</div>
+		</div>
+</body>
+</html>

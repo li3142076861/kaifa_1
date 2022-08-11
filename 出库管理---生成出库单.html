@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/通用.css">
+    <link rel="stylesheet" href="../static/表格样式.css">
+</head>
+<body>
+		<div style="border:2px solid gray" class="#">
+			<div class="top">
+				<p>超市仓储信息管理平台——零食区</p>
+			</div>
+			<div class="bottom">
+				<div class="left">
+                    <form action="" method="POST">
+                        <ul>
+                            <li><a href="/#">生成出库单</a></li>
+                            <li><a href="/#">货物信息采集</a></li>
+                            <li><a href="/#">历史单据查询</a></li>
+                        </ul>
+                    </form>
+				</div>
+				<div class="right">
+                <p><a href="/主页面" class="yemian">返回主页面</a></p>
+                    <div>
+					    <h2 align="center">增加出库单信息</h2>
+					    <div>
+					        <form action="/chukudan" method="POST">
+                                &nbsp; &nbsp;&nbsp;序号：<input type="text" name="xuhao" >
+					            &nbsp; &nbsp;&nbsp;名称：<input type="text" name="mingcheng" >
+					            &nbsp; &nbsp;&nbsp;规格：<input type="text" name="guige" >
+					            &nbsp; &nbsp;&nbsp;单位：<input type="text" name="danwei" ><br/>
+					            &nbsp; &nbsp;&nbsp;数量：<input type="text" name="shuliang" >
+                                &nbsp; &nbsp;&nbsp;单价：<input type="text" name="danjia" >
+                                &nbsp; &nbsp;&nbsp;金额：<input type="text" name="jine" >
+                                &nbsp; &nbsp;&nbsp;备注：<input type="text" name="beizhu" >
+					            &nbsp; &nbsp;&nbsp;<input type="submit" name="submit" value="增加">
+					        </form>
+					    </div>
+					    <h2 align="center">生成出库单</h2>
+                    <table border="2" >
+                        <tr>
+                            <th colspan="8">入库单</th>
+                        </tr>
+                        <tr>
+                            <th>序号</th>
+                            <th>名称</th>
+                            <th>规格</th>
+                            <th>单位</th>
+                            <th>数量</th>
+                            <th>单价</th>
+                            <th>金额</th>
+                            <th>备注</th>
+                        </tr>
+                        {%  for data in datas %}
+                           <tr>
+                               <td>{{ data.xuhao }}</td>
+                               <td>{{ data.mingcheng }}</td>
+                               <td>{{ data.guige }}</td>
+                               <td>{{ data.danwei }}</td>
+                               <td>{{ data.shuliang }}</td>
+                               <td>{{ data.danjia }}</td>
+                               <td>{{ data.jine }}</td>
+                               <td>{{ data.beizhu }}</td>
+                               <td>
+                                   <a href="/出库单修改?id={{ data.id }}" style="display:inline-block;">修改</a>&nbsp;&nbsp;&nbsp;<a href="/delete_chukudan?id={{ data.id }}" style="display:inline-block">删除</a>
+                               </td>
+                           </tr>
+					    {% endfor %}
+                    </table>
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

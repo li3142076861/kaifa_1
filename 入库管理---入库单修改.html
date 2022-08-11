@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/通用.css">
+</head>
+<body>
+<h2>更新仓库信息</h2>
+    <div>
+        <p><a href="/主页面" class="yemian">返回主页面</a></p>
+        <form action="/入库单修改?id={{data.id}}" method="POST">
+            序号：<input type="text" name="xuhao" value="{{ data.xuhao}}"><br/>
+            名称：<input type="text" name="mingcheng" value="{{ data.mingcheng }}"><br/>
+            规格：<input type="text" name="guige" value="{{ data.guige }}"><br/>
+            单位：<input type="text" name="danwei" value="{{ data.danwei}}"><br/>
+            数量：<input type="text" name="shuliang" value="{{ data.shuliang }}"><br/>
+            单价：<input type="text" name="danjia" value="{{ data.danjia }}"><br/>
+            金额：<input type="text" name="jine" value="{{ data.jine }}"><br/>
+            备注：<input type="text" name="beizhu" value="{{ data.beizhu }}"><br/>
+            <input type="submit" name="submit" value="提交">
+        </form>
+    </div>
+</body>
+</html>
